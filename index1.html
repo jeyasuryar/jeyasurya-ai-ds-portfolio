@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio| AI & DS Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0a192f;
+    color:white;
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(17,34,64,0.95);
+    z-index:1000;
+}
+
+nav h2{
+    color:#64ffda;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#64ffda;
+}
+
+/* Hero */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 50px;
+    background:linear-gradient(rgba(10,25,47,0.8),rgba(10,25,47,0.9)),
+    url('bg.jpg') center/cover;
+}
+
+.hero-content{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero img{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    border:5px solid #64ffda;
+    object-fit:cover;
+    box-shadow:0 0 25px #64ffda;
+}
+
+.hero-text h1{
+    font-size:3rem;
+}
+
+.hero-text span{
+    color:#64ffda;
+}
+
+.hero-text p{
+    margin:20px 0;
+    font-size:1.2rem;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#64ffda;
+    color:#0a192f;
+    text-decoration:none;
+    border-radius:6px;
+    margin-right:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* Sections */
+section{
+    padding:100px 50px;
+}
+
+.section-title{
+    text-align:center;
+    color:#64ffda;
+    font-size:2.2rem;
+    margin-bottom:40px;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#112240;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:#233554;
+}
+
+/* Skills */
+.skill{
+    margin:20px 0;
+}
+
+.bar{
+    width:100%;
+    background:#233554;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:12px;
+    background:#64ffda;
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 320px;
+    height: 350px;
+    background: #1b2a4a;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+/* Academic Performance */
+
+.academic-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.academic-card{
+    background:#112240;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.academic-card:hover{
+    transform:translateY(-8px);
+}
+
+.academic-card img{
+    width:100%;
+    height:350px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.academic-card h3{
+    color:#64ffda;
+    margin-bottom:15px;
+}
+
+.academic-card p{
+    margin:6px 0;
+}
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#112240;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        margin-top:10px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero img{
+        width:220px;
+        height:220px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h2>Portfolio</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <img src="images/profile.jpg"alt="Jeyasurya">
+        <div class="hero-text">
+            <h1>Hi, I'm <span>Jeyasurya</span></h1>
+            <p>B.Tech AI & DS Student | Aspiring AI Developer</p>
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="resume.pdf" class="btn">Download Resume</a>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+        <p>
+            I am pursuing B.Tech in Artificial Intelligence & Data Science.
+            Passionate about AI, web development and software engineering.
+            I love building innovative solutions using technology.
+        </p>
+        <br>
+        <p><b>Languages:</b> English, Tamil</p>
+    </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skill">
+        <p>Python</p>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Java</p>
+        <div class="bar"><div class="fill" style="width:75%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>HTML & CSS</p>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="images/portfolio.jpg"alt="Portfolio Website"> 
+            <h3>Portfolio Website</h3>
+            <p>Professional responsive portfolio website.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/wildlife.jpg"alt="Wildlife Website"> 
+            <h3>Wildlife Website</h3>
+            <p>Responsive wildlife information website.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/ai-future.jpg"alt="AI Future Project"> 
+            <h3>AI Future Project</h3>
+            <p>Upcoming AI & Data Science project.</p>
+        </div>
+
+    </div>
+
+    
+</section>
+
+<!-- Academic Performance -->
+<section id="academics">
+    <h2 class="section-title">Academic Performance</h2>
+
+    <div class="academic-container">
+
+        <!-- Semester 1 -->
+        <div class="academic-card">
+            <img src="images/semester1.jpg" alt="Semester 1 Marksheet">
+            <h3>Semester I</h3>
+            <p><strong>GPA:</strong> 8.239</p>
+            <p><strong>Credits Earned:</strong> 23</p>
+            <p><strong>Status:</strong> Passed</p>
+        </div>
+
+        <!-- Semester 2 -->
+        <div class="academic-card">
+            <img src="images/semester2.jpg" alt="Semester 2 Marksheet">
+            <h3>Semester II</h3>
+            <p><strong>GPA:</strong> 8.043</p>
+            <p><strong>Credits Earned:</strong> 23</p>
+            <p><strong>Status:</strong> Passed</p>
+            <p><strong>CGPA:</strong> 8.141</p>
+        </div>
+
+        <!-- Semester 3 -->
+        <div class="academic-card">
+            <img src="images/semester3.jpg" alt="Semester 3 Result">
+            <h3>Semester III</h3>
+
+            <p><strong>Transforms & Complex Analysis:</strong> A</p>
+            <p><strong>Artificial Intelligence:</strong> B</p>
+            <p><strong>Computer System Architecture:</strong> O</p>
+            <p><strong>Data Structures:</strong> A</p>
+            <p><strong>OOP with Java:</strong> A</p>
+            <p><strong>Data Exploration & Visualization:</strong> A</p>
+            <p><strong>Design Thinking:</strong> O</p>
+            <p><strong>Data Structures Lab:</strong> O</p>
+            <p><strong>AI Lab:</strong> A+</p>
+            <p><strong>Communication Skills:</strong> B+</p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact">
+        <p>Email: jeyasuryar844@gmail.com</p>
+        <p>GitHub: github.com/jeyasuryar</p>
+        <p>LinkedIn: linkedin.com/in/jeyasurya</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Jeyasurya | AI & DS Portfolio</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save Animals & Birds</title>
+
+<style>
+    .navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo h2{
+    color:#0070c9;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:50px;
+}
+
+.menu li a{
+    text-decoration:none;
+    color:#222;
+    font-size:22px;
+    font-weight:500;
+}
+
+.menu li a:hover{
+    color:none;
+}
+
+.right-menu{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    font-size:20px;
+}
+
+.search{
+    cursor:pointer;
+}
+
+.help{
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Navbar */
+nav{
+    background:#00695c;
+    color:navy;
+    padding:20px;
+    text-align:left;
+}
+
+nav h1{
+    font-size:30px;
+}
+
+.hero{
+    background:url('images/forest.webp') center/cover no-repeat;
+    color:black;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h2{
+    font-size:45px;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    gap:25px;
+    padding:40px;
+}
+
+.card{
+    width:300px;
+    background:rgb(0, 255, 136);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#00695c;
+}
+
+.card p{
+    color:#555;
+}
+
+footer{
+    background:#004d40;
+    color:skyblue;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    .hero h2{
+        font-size:30px;
+    }
+
+    .container{
+        flex-direction:column;
+        align-items:start;
+    }
+
+    .card{
+        width:90%;
+    }
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">
+        <h2>BlueCross BlueShield</h2>
+    </div>
+
+    <ul class="menu">
+        <li><a href="#">Members</a></li>
+        <li><a href="#">Explore Plans</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">News & Insights</a></li>
+    </ul>
+
+    <div class="right-menu">
+        <span class="search">🔍</span>
+        <span class="help">Help ▼</span>
+    </div>
+</nav>
+
+
+<nav>
+    <h1><div class=""></div></h1>
+</nav>
+<nav> ... </nav>
+
+<section class="hero">
+    <h2>Protect Wildlife, Save Nature</h2>
+    <p>Join us in preserving endangered species and natural habitats.</p>
+</section>
+
+<section class="container">
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\download.webp"alt="Tiger">
+        <div class="card-content">
+            <h3>Tiger</h3>
+            <p>Protect endangered tiger species.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\download (1).webp"alt="Birds">
+        <div class="card-content">
+            <h3>Birds</h3>
+            <p>Conserve natural habitats for birds.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\9c2QW6JeFwFyEFnFeOnJggFHzbPc7Ocp6jnacwyaBRrbboeOry0pQmP-9Mt3RNT_6PBI4MLSuhh_ThWS2KCqsVeMVPdCsQxeQK4UZh_O1IEYagHhGanIZCDp5ugNPT6z6grMTiN9VEdl0kNFG0EEo6q_kEECh6uqS_9L7dlz-5_bF0K5Hv8JIuWQTEjSe6w5.jpg"alt="Forest">
+        <div class="card-content">
+            <h3>Forest</h3>
+            <p>Save forests and ecological balance.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\nHaJ_r3SJs9VTkNqlQyUGQXIPFEAb6WWNdMNxdV06OT3w8fS9wp2Le0Ok0s3VvNGFVFVWP_N7DiZOvSFsI8x6ZlHkww_-7J5TwDArYpatcNQi4e0X_ZAy079WOKzlT4BWOp_yJ3Itng1_q-vHNwK3Ph7I6puy8PxV5qqIT-2cGXXdMg6Bzk4Mv-chZuCBkqP.jpg"alt="Turtle">
+        <div class="card-content">
+            <h3>Turtle</h3>
+            <p>Protect marine life ecosystems.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\download (2).webp"alt="Elephant">
+        <div class="card-content">
+            <h3>Elephant</h3>
+            <p>Preserve wildlife diversity.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="C:\Users\ashwi\Pictures\9pAD6wBR9piCAqLlBGSZub535EYW98iodiAwgOSVw1klH5ZHC2v_i1FZVEwuXlhozrskQ2P2x8jpny23yKqtKGNOBN7Kmn02ZpyTratTKSvpT0cXuBjSX25THaA4EFVvIeti5TyaauP2IKsUg0K0-n6z9eCXv9dxDDQgwXqJl1_-TcoJr1KUj7UfN2oowA4l.jpg"alt="Ocean">
+        <div class="card-content">
+            <h3>Ocean Life</h3>
+            <p>Support aquatic biodiversity.</p>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Save Wildlife Website</p>
+</footer>
+
+</body>
+</html>
