@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer CRUD with Validation</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .add-btn {
+      background: green;
+    }
+
+    .edit-btn {
+      background: orange;
+    }
+
+    .delete-btn {
+      background: red;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background: #333;
+      color: white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Customer Validation</h2>
+
+  <!-- FORM -->
+  <input type="text" id="name" placeholder="Enter Name">
+  <div class="error" id="nameError"></div>
+
+  <input type="text" id="email" placeholder="Enter Email">
+  <div class="error" id="emailError"></div>
+
+  <input type="text" id="phone" placeholder="Enter Phone Number">
+  <div class="error" id="phoneError"></div>
+
+  <button class="add-btn" onclick="saveCustomer()">Add Customer</button>
+
+  <!-- TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="customerTable"></tbody>
+  </table>
+
+</div>
+
+<script>
+
+  let customers = [];
+  let editIndex = -1;
+
+  // CREATE + UPDATE
+  function saveCustomer() {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    // Error elements
+    let nameError = document.getElementById("nameError");
+    let emailError = document.getElementById("emailError");
+    let phoneError = document.getElementById("phoneError");
+
+    // Clear errors
+    nameError.innerHTML = "";
+    emailError.innerHTML = "";
+    phoneError.innerHTML = "";
+
+    let isValid = true;
+
+    // Name Validation
+    if (name === "") {
+      nameError.innerHTML = "Name is required";
+      isValid = false;
+    }
+
+    // Email Validation
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (email === "") {
+      emailError.innerHTML = "Email is required";
+      isValid = false;
+    } else if (!email.match(emailPattern)) {
+      emailError.innerHTML = "Invalid Email";
+      isValid = false;
+    }
+
+    // Phone Validation
+    let phonePattern = /^[0-9]{10}$/;
+
+    if (phone === "") {
+      phoneError.innerHTML = "Phone number is required";
+      isValid = false;
+    } else if (!phone.match(phonePattern)) {
+      phoneError.innerHTML = "Invalid 10-digit phone number";
+      isValid = false;
+    }
+
+    // Stop if invalid
+    if (!isValid) {
+      return;
+    }
+
+    let customer = {
+      name,
+      email,
+      phone
+    };
+
+    // CREATE
+    if (editIndex === -1) {
+      customers.push(customer);
+    }
+
+    // UPDATE
+    else {
+      customers[editIndex] = customer;
+      editIndex = -1;
+      document.querySelector(".add-btn").innerHTML = "Add Customer";
+    }
+
+    clearForm();
+    displayCustomers();
+  }
+
+  // READ
+  function displayCustomers() {
+
+    let table = document.getElementById("customerTable");
+    table.innerHTML = "";
+
+    customers.forEach((customer, index) => {
+
+      table.innerHTML += `
+        <tr>
+          <td>${customer.name}</td>
+          <td>${customer.email}</td>
+          <td>${customer.phone}</td>
+
+          <td>
+            <button class="edit-btn" onclick="editCustomer(${index})">
+              Edit
+            </button>
+
+            <button class="delete-btn" onclick="deleteCustomer(${index})">
+              Delete
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  // EDIT
+  function editCustomer(index) {
+
+    document.getElementById("name").value = customers[index].name;
+    document.getElementById("email").value = customers[index].email;
+    document.getElementById("phone").value = customers[index].phone;
+
+    editIndex = index;
+
+    document.querySelector(".add-btn").innerHTML = "Update Customer";
+  }
+
+  // DELETE
+  function deleteCustomer(index) {
+
+    customers.splice(index, 1);
+
+    displayCustomers();
+  }
+
+  // CLEAR FORM
+  function clearForm() {
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+  }
+
+</script>
+
+</body>
+</html>
