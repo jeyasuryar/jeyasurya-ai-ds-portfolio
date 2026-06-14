@@ -3,127 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Save Animals & Birds</title>
+<title>SmartShop AI</title>
 
 <style>
-    .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background:white;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo h2{
-    color:#0070c9;
-    font-size:28px;
-    font-weight:bold;
-}
-
-.menu{
-    display:flex;
-    list-style:none;
-    gap:50px;
-}
-
-.menu li a{
-    text-decoration:none;
-    color:#222;
-    font-size:22px;
-    font-weight:500;
-}
-
-.menu li a:hover{
-    color:none;
-}
-
-.right-menu{
-    display:flex;
-    align-items:center;
-    gap:25px;
-    font-size:20px;
-}
-
-.search{
-    cursor:pointer;
-}
-
-.help{
-    cursor:pointer;
-}
-
-@media(max-width:768px){
-    .navbar{
-        flex-direction:column;
-        gap:20px;
-    }
-
-    .menu{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-    }
-}
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f5f5f5;
+    background:#f4f4f4;
 }
 
-/* Navbar */
-nav{
-    background:#00695c;
-    color:navy;
-    padding:20px;
-    text-align:left;
-}
-
-nav h1{
-    font-size:30px;
-}
-
-.hero{
-    background:url('images/forest.webp') center/cover no-repeat;
-    color:black;
+header{
+    background:#232f3e;
+    color:white;
     text-align:center;
-    padding:100px 20px;
+    padding:20px;
 }
 
-.hero h2{
-    font-size:45px;
+header h1{
+    margin-bottom:10px;
 }
 
-.hero p{
-    margin-top:15px;
-    font-size:20px;
-}
-
-
-.container{
+.products{
     display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
+    justify-content:center;
     gap:25px;
+    flex-wrap:wrap;
     padding:40px;
 }
 
 .card{
-    width:300px;
-    background:rgb(0, 255, 136);
-    border-radius:10px;
+    background:white;
+    width:280px;
+    border-radius:12px;
     overflow:hidden;
-    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
     transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 }
 
 .card img{
@@ -133,127 +56,228 @@ nav h1{
 }
 
 .card-content{
-    padding:20px;
+    padding:15px;
     text-align:center;
 }
 
-.card h3{
-    margin-bottom:10px;
-    color:#00695c;
+.price{
+    color:green;
+    font-size:20px;
+    margin:10px 0;
 }
 
-.card p{
-    color:#555;
+button{
+    background:#ff9900;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-footer{
-    background:#004d40;
-    color:skyblue;
+button:hover{
+    background:#e68a00;
+}
+
+.cart{
     text-align:center;
     padding:20px;
+    font-size:20px;
+    font-weight:bold;
 }
 
-@media(max-width:768px){
-    .hero h2{
-        font-size:30px;
-    }
+/* Chatbot */
 
-    .container{
-        flex-direction:column;
-        align-items:start;
-    }
+.chatbot{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:320px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
 
-    .card{
-        width:90%;
-    }
+.chat-header{
+    background:#232f3e;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+#chatbox{
+    height:250px;
+    overflow-y:auto;
+    padding:10px;
+}
+
+.message{
+    margin:8px 0;
+}
+
+.user{
+    color:blue;
+}
+
+.bot{
+    color:green;
+}
+
+.chat-input{
+    display:flex;
+}
+
+.chat-input input{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-top:1px solid #ddd;
+}
+
+.chat-input button{
+    border-radius:0;
 }
 </style>
 </head>
 <body>
-    <nav class="navbar">
-    <div class="logo">
-        <h2>BlueCross BlueShield</h2>
-    </div>
 
-    <ul class="menu">
-        <li><a href="#">Members</a></li>
-        <li><a href="#">Explore Plans</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">News & Insights</a></li>
-    </ul>
+<header>
+    <h1>SmartShop AI</h1>
+    <p>Your AI-Powered Shopping Assistant</p>
+</header>
 
-    <div class="right-menu">
-        <span class="search">🔍</span>
-        <span class="help">Help ▼</span>
-    </div>
-</nav>
+<div class="cart">
+    Cart Items: <span id="cartCount">0</span>
+</div>
 
-
-<nav>
-    <h1><div class=""></div></h1>
-</nav>
-<nav> ... </nav>
-
-<section class="hero">
-    <h2>Protect Wildlife, Save Nature</h2>
-    <p>Join us in preserving endangered species and natural habitats.</p>
-</section>
-
-<section class="container">
+<section class="products">
 
     <div class="card">
-        <img src="C:\Users\ashwi\Pictures\download.webp"alt="Tiger">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
         <div class="card-content">
-            <h3>Tiger</h3>
-            <p>Protect endangered tiger species.</p>
+            <h3>Wireless Headphones</h3>
+            <p class="price">₹1,999</p>
+            <button onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
 
     <div class="card">
-        <img src="C:\Users\ashwi\Pictures\download (1).webp"alt="Birds">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Watch">
         <div class="card-content">
-            <h3>Birds</h3>
-            <p>Conserve natural habitats for birds.</p>
+            <h3>Smart Watch</h3>
+            <p class="price">₹2,999</p>
+            <button onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
 
     <div class="card">
-        <img src="C:\Users\ashwi\Pictures\9c2QW6JeFwFyEFnFeOnJggFHzbPc7Ocp6jnacwyaBRrbboeOry0pQmP-9Mt3RNT_6PBI4MLSuhh_ThWS2KCqsVeMVPdCsQxeQK4UZh_O1IEYagHhGanIZCDp5ugNPT6z6grMTiN9VEdl0kNFG0EEo6q_kEECh6uqS_9L7dlz-5_bF0K5Hv8JIuWQTEjSe6w5.jpg"alt="Forest">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="Phone">
         <div class="card-content">
-            <h3>Forest</h3>
-            <p>Save forests and ecological balance.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="C:\Users\ashwi\Pictures\nHaJ_r3SJs9VTkNqlQyUGQXIPFEAb6WWNdMNxdV06OT3w8fS9wp2Le0Ok0s3VvNGFVFVWP_N7DiZOvSFsI8x6ZlHkww_-7J5TwDArYpatcNQi4e0X_ZAy079WOKzlT4BWOp_yJ3Itng1_q-vHNwK3Ph7I6puy8PxV5qqIT-2cGXXdMg6Bzk4Mv-chZuCBkqP.jpg"alt="Turtle">
-        <div class="card-content">
-            <h3>Turtle</h3>
-            <p>Protect marine life ecosystems.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="C:\Users\ashwi\Pictures\download (2).webp"alt="Elephant">
-        <div class="card-content">
-            <h3>Elephant</h3>
-            <p>Preserve wildlife diversity.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="C:\Users\ashwi\Pictures\9pAD6wBR9piCAqLlBGSZub535EYW98iodiAwgOSVw1klH5ZHC2v_i1FZVEwuXlhozrskQ2P2x8jpny23yKqtKGNOBN7Kmn02ZpyTratTKSvpT0cXuBjSX25THaA4EFVvIeti5TyaauP2IKsUg0K0-n6z9eCXv9dxDDQgwXqJl1_-TcoJr1KUj7UfN2oowA4l.jpg"alt="Ocean">
-        <div class="card-content">
-            <h3>Ocean Life</h3>
-            <p>Support aquatic biodiversity.</p>
+            <h3>Smart Phone</h3>
+            <p class="price">₹14,999</p>
+            <button onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
 
 </section>
 
-<footer>
-    <p>© 2026 Save Wildlife Website</p>
-</footer>
+<!-- Chatbot -->
+
+<div class="chatbot">
+
+    <div class="chat-header">
+        AI Shopping Assistant
+    </div>
+
+    <div id="chatbox">
+        <div class="message bot">
+            Bot: Hello! Ask me about products.
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask something..."
+        >
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+
+let cart = 0;
+
+function addToCart(){
+    cart++;
+    document.getElementById("cartCount").innerText = cart;
+}
+
+function sendMessage(){
+
+    let input =
+    document.getElementById("userInput");
+
+    let chatbox =
+    document.getElementById("chatbox");
+
+    let text =
+    input.value.toLowerCase();
+
+    if(text === "") return;
+
+    chatbox.innerHTML +=
+    `<div class="message user">
+        You: ${text}
+    </div>`;
+
+    let reply = "";
+
+    if(text.includes("headphone")){
+        reply =
+        "Wireless Headphones are available for ₹1,999.";
+    }
+
+    else if(text.includes("watch")){
+        reply =
+        "Smart Watch is available for ₹2,999.";
+    }
+
+    else if(text.includes("phone")){
+        reply =
+        "Smart Phone is available for ₹14,999.";
+    }
+
+    else if(text.includes("recommend")){
+        reply =
+        "I recommend the Smart Watch for daily use.";
+    }
+
+    else if(text.includes("cart")){
+        reply =
+        "You currently have " + cart + " item(s) in your cart.";
+    }
+
+    else{
+        reply =
+        "Please ask about products, prices, recommendations, or your cart.";
+    }
+
+    chatbox.innerHTML +=
+    `<div class="message bot">
+        Bot: ${reply}
+    </div>`;
+
+    chatbox.scrollTop =
+    chatbox.scrollHeight;
+
+    input.value = "";
+}
+
+</script>
 
 </body>
 </html>
