@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation using JavaScript</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    form {
+      width: 350px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+  <!-- Name -->
+  <label>Name:</label>
+  <input type="text" id="name">
+  <div id="nameError" class="error"></div>
+
+  <!-- Mobile -->
+  <label>Mobile Number:</label>
+  <input type="text" id="mobile">
+  <div id="mobileError" class="error"></div>
+
+  <!-- Email -->
+  <label>Email ID:</label>
+  <input type="text" id="email">
+  <div id="emailError" class="error"></div>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+<script>
+
+function validateForm() {
+
+  // Get input values
+  let name = document.getElementById("name").value.trim();
+  let mobile = document.getElementById("mobile").value.trim();
+  let email = document.getElementById("email").value.trim();
+
+  // Error elements
+  let nameError = document.getElementById("nameError");
+  let mobileError = document.getElementById("mobileError");
+  let emailError = document.getElementById("emailError");
+
+  // Clear previous errors
+  nameError.innerHTML = "";
+  mobileError.innerHTML = "";
+  emailError.innerHTML = "";
+
+  // Validation patterns
+  let namePattern = /^[A-Za-z ]+$/;
+  let mobilePattern = /^[0-9]{10}$/;
+  let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  let isValid = true;
+
+  // Name validation
+  if (!namePattern.test(name)) {
+    nameError.innerHTML = "Name should contain only alphabets.";
+    isValid = false;
+  }
+
+  // Mobile validation
+  if (!mobilePattern.test(mobile)) {
+    mobileError.innerHTML = "Mobile number must contain 10 digits only.";
+    isValid = false;
+  }
+
+  // Email validation
+  if (!emailPattern.test(email)) {
+    emailError.innerHTML = "Enter a valid email address.";
+    isValid = false;
+  }
+
+  // Success message
+  if (isValid) {
+    alert("Form Submitted Successfully!");
+  }
+
+  return isValid;
+}
+
+</script>
+
+</body>
+</html>
